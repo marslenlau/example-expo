@@ -20,12 +20,14 @@ const Dashboard = () => {
                         <Col span={12} className='p-4'>
                             <h3>Nombre</h3>
                             <span style={{ fontSize : '1.5rem', textTransform : 'capitalize', fontWeight : 'bold'}}>{information.name} {information.lastname}</span>
+                            <h3>Empresa</h3>
+                            <span style={{ fontSize : '1.5rem', textTransform : 'capitalize', fontWeight : 'bold'}}>{information.bussiness}</span>
                             <h3>Email</h3>
                             <div className='pb-4'>
                                 <span style={{fontSize: '1.5rem'}}>{information.email}</span>
                             </div>
                             <div className='text-center p-4 bg-indigo-800' style={{borderRadius : '1rem'}}>
-                                <span style={{fontSize: '2rem', color: 'white'}}>El mejor contenido multimedia para ti</span>
+                                <span style={{fontSize: '2rem', color: 'white'}}>La mejor seleccion de plantillas personalizada para ti</span>
                             </div>
                             <div className='text-center' style={{ fontSize : '5rem'}}><VideoCameraOutlined /></div>
                         </Col>

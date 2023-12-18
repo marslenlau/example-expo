@@ -23,6 +23,10 @@ const User = db.define('user', {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    bussiness : {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
 });
 
 export default User;

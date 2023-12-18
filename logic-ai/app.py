@@ -20,7 +20,7 @@ def obtener_datos():
 
         #?CONSULTA DATOS PREFERENCES
         cursor = conexion.connection.cursor()
-        sql = "SELECT u.name AS user_name, JSON_OBJECT( 'action', MAX(CASE WHEN g.name = 'action' THEN p.data END), 'comedy', MAX(CASE WHEN g.name = 'comedy' THEN p.data END), 'drama', MAX(CASE WHEN g.name = 'drama' THEN p.data END), 'scifi', MAX(CASE WHEN g.name = 'scifi' THEN p.data END), 'romance', MAX(CASE WHEN g.name = 'romance' THEN p.data END)) AS preferences FROM preferences p JOIN users u ON p.user_id = u.id JOIN genders g ON p.gender_id = g.id GROUP BY u.name;"
+        sql = "SELECT u.bussiness AS user_name, JSON_OBJECT( 'formally', MAX(CASE WHEN g.name = 'formally' THEN p.data END), 'fun', MAX(CASE WHEN g.name = 'fun' THEN p.data END), 'intriguing', MAX(CASE WHEN g.name = 'intriguing' THEN p.data END), 'avant', MAX(CASE WHEN g.name = 'avant' THEN p.data END), 'warm', MAX(CASE WHEN g.name = 'warm' THEN p.data END)) AS preferences FROM preferences p JOIN users u ON p.user_id = u.id JOIN genders g ON p.gender_id = g.id GROUP BY u.name;"
         cursor.execute(sql)
         data = cursor.fetchall()
         # Procesar los resultados y construir la estructura de datos deseada
@@ -31,10 +31,11 @@ def obtener_datos():
             # Convertir valores de cadenas a valores numéricos flotantes
             preferencias_dict_numerico = {genero: float(valor) for genero, valor in preferencias_dict.items()}
             user_preferences[nombre] = preferencias_dict_numerico
+        
 
         #?CONSULTA DATOS ITEMS
         cursor = conexion.connection.cursor()
-        sql = "SELECT mo.id, mo.name AS title, mo.link AS movie_link, JSON_OBJECT('action', MAX(CASE WHEN g.name = 'action' THEN mu.data END),'comedy', MAX(CASE WHEN g.name = 'comedy' THEN mu.data END), 'drama', MAX(CASE WHEN g.name = 'drama' THEN mu.data END), 'scifi', MAX(CASE WHEN g.name = 'scifi' THEN mu.data END),'romance', MAX(CASE WHEN g.name = 'romance' THEN mu.data END)) AS features FROM multimedia mu JOIN movies mo ON mu.movie_id = mo.id JOIN genders g ON mu.gender_id = g.id GROUP BY mo.id, mo.name, mo.link;"
+        sql = "SELECT mo.id, mo.name AS title, mo.link AS movie_link, JSON_OBJECT('formally', MAX(CASE WHEN g.name = 'formally' THEN mu.data END),'fun', MAX(CASE WHEN g.name = 'fun' THEN mu.data END), 'intriguing', MAX(CASE WHEN g.name = 'intriguing' THEN mu.data END), 'avant', MAX(CASE WHEN g.name = 'avant' THEN mu.data END),'warm', MAX(CASE WHEN g.name = 'warm' THEN mu.data END)) AS features FROM multimedia mu JOIN movies mo ON mu.movie_id = mo.id JOIN genders g ON mu.gender_id = g.id GROUP BY mo.id, mo.name, mo.link;"
         cursor.execute(sql)
         data = cursor.fetchall()
         # Procesar los resultados y construir la estructura de datos deseada
@@ -47,6 +48,7 @@ def obtener_datos():
             multimedia_item = {"id": item_id, "title": title, "link": movie_link, "features": features_dict_numerico}
             multimedia_items.append(multimedia_item)
 
+        # print(multimedia_items)
         #? VARIABLES IMPORTANTES user_preferences, multimedia_items
         # Convertir los datos en arrays de numpy
         users_array = np.array([list(user.values()) for user in user_preferences.values()])

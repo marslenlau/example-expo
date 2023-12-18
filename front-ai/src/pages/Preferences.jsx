@@ -6,7 +6,7 @@ import useInformation from '../hooks/useInformation';
 import '../assets/scss/pages/preferences/preferences_style.scss'
 import ReactPlayer from 'react-player/youtube'
 import { SmileOutlined } from '@ant-design/icons';
-
+import { Image } from 'antd';
 const Preferences = () => {
     const {preferences, obtainPreferences} = useInformation()
     const onClickPreferences = () => {
@@ -41,7 +41,9 @@ const Preferences = () => {
                                             <div className='bg-indigo-800 text-white p-2 text-center'>
                                                 <span style={{fontSize: '1.4rem', fontWeight: 'bold'}} >{movie.title}</span>
                                             </div>
-                                            <ReactPlayer url={movie.link} controls={true} width={'100%'} height={'360px'}/>
+                                            <div className='p-3'>
+                                                <Image src={movie.link} alt="" style={{width : '100%'}}/>
+                                            </div>
                                             <div 
                                                 className='bg-indigo-800 text-white p-3' 
                                                 style={{borderBottomLeftRadius : '1rem', borderBottomRightRadius : '1rem', display: 'flex' , justifyContent: 'space-around'}}>
@@ -50,11 +52,11 @@ const Preferences = () => {
                                                     <div className='text-5xl pt-2'><SmileOutlined /></div>
                                                 </div>
                                                 <div className='bg-white text-black p-3' style={{borderRadius: '1rem'}}>
-                                                    <div><strong>Accion</strong> - {movie.features.action * 100}%</div>
-                                                    <div><strong>Comedia</strong>  - {movie.features.comedy * 100} %</div>
-                                                    <div><strong>Drama</strong>  - {movie.features.drama * 100} %</div>
-                                                    <div><strong>Romance</strong>  - {movie.features.romance * 100} %</div>
-                                                    <div><strong>Scifi</strong>  - {movie.features.scifi * 100} %</div>
+                                                    <div><strong>Formal</strong> - {movie.features.formally * 100}%</div>
+                                                    <div><strong>Divertido</strong>  - {movie.features.fun * 100} %</div>
+                                                    <div><strong>Intrigante</strong>  - {movie.features.intriguing * 100} %</div>
+                                                    <div><strong>Vangurdista</strong>  - {movie.features.avant * 100} %</div>
+                                                    <div><strong>Calido</strong>  - {movie.features.warm * 100} %</div>
                                                 </div>
                                             </div>
                                         </Col>

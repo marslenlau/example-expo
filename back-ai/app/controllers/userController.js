@@ -52,6 +52,7 @@ const authUser = async (req, res) => {
             name : user.name,
             lastname : user.lastname,
             email : user.email,
+            bussiness : user.bussiness,
         });
     }
 } 
@@ -64,6 +65,7 @@ const identityUser = async (req, res) => {
             name : user.name,
             lastname : user.lastname,
             email : user.email,
+            bussiness : user.bussiness,
         });
     } catch (error) {
         res.status(400).json({ message: 'Fallo de servidor' })

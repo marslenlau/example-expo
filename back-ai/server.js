@@ -22,6 +22,9 @@ app.use(morgan('combined'));
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(cors());
 
+//? directory public
+app.use(express.static('app/public'));
+
 //? database
 testConnection();
 // syncConnection();

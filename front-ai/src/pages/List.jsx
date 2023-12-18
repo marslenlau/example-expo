@@ -20,9 +20,11 @@ const List = () => {
                                         <div className='bg-indigo-800 text-white p-2 text-center'>
                                             <span style={{fontSize: '1.4rem', fontWeight: 'bold'}} >{movie.name}</span>
                                         </div>
-                                        <ReactPlayer url={movie.link} controls={true} width={'100%'} height={'360px'}/>
+                                        <div className='p-3'>
+                                                <img src={movie.link} alt="" style={{width : '100%'}}/>
+                                        </div>
                                         <div className='p-2 text-justify'>
-                                            <div style={{fontSize: '1.2rem'}} className='pb-1'><strong>Sinopsis</strong></div>
+                                            <div style={{fontSize: '1.2rem'}} className='pb-1'><strong>Descripcion</strong></div>
                                             <span style={{fontFamily: 'cursive', fontSize: '1rem'}}>{movie.description}</span>
                                         </div>
                                     </Col>

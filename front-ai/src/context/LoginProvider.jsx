@@ -23,7 +23,7 @@ const LoginProvider = ({children}) => {
             if(response.status === 200){
                 toastsuccess('Bienvenido al sistema multimedia')
                 localStorage.setItem('id', information.id)
-                localStorage.setItem('name', information.name)
+                localStorage.setItem('name', information.bussiness)
                 setInformation(information)
             }else{
                 toasterror('Error de autentificacion');
