@@ -10,11 +10,11 @@ const LoginContext = createContext()
 const LoginProvider = ({children}) => {
     //? useState
     const [auth, setAuth] = useState({})
-    const {information , setInformation} = useInformation()
+    const {information , info,  setInformation, setInfo} = useInformation()
     //? path
     const pathLogin = '/auth-user'
     const pathProfile = '/profile-user'
-
+    const pathPreferences = '/obtain-preference'
     //? functions
     const submitFormLogin = async (inputs) => {
         try {
@@ -24,6 +24,12 @@ const LoginProvider = ({children}) => {
                 toastsuccess('Bienvenido al sistema multimedia')
                 localStorage.setItem('id', information.id)
                 localStorage.setItem('name', information.bussiness)
+                const data  = {
+                    id: information.id
+                }
+                const queryPreferences = await clientAxios.post(pathPreferences, data, headerJson);
+                const preferences = queryPreferences.data
+                setInfo(preferences.queryPreferences)
                 setInformation(information)
             }else{
                 toasterror('Error de autentificacion');

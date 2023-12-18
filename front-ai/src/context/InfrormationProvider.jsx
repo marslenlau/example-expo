@@ -13,6 +13,7 @@ const InformationProvider = ({children}) => {
     const [information, setInformation] = useState([])
     const [movies, setMovies] = useState({})
     const [preferences, setPreferences] = useState([])
+    const [info, setInfo] = useState([])
     useEffect(() => {
         const obtainInformation = async () => {
             try {
@@ -59,6 +60,7 @@ const InformationProvider = ({children}) => {
         }
         
     }
+    
     return (
         <InformationContext.Provider
             value={{
@@ -66,10 +68,12 @@ const InformationProvider = ({children}) => {
                 information,
                 movies,
                 preferences,
+                info,
                 setInformation,
                 setMovies,
                 obtainPreferences,
-                setPreferences
+                setPreferences,
+                setInfo
             }}
         >
             {children}
