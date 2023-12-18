@@ -1,0 +1,11 @@
+.container-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    // background: linear-gradient(#415a77 50%, #415a77 20%, #e1e1deff 20%, #e1e1deff 100%);
+    background-image: url("../../img/back3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

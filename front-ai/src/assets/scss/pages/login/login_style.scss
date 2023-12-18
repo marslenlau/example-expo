@@ -1,0 +1,27 @@
+.card-login{
+    background-color: white;
+    width: 30%;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    text-align: left;
+    font-size: 1.4rem;
+    margin: 0.5rem;
+    .header{
+        text-align: center;
+    }
+    // @include responsive($xs) {
+        
+    // }
+    
+    // @include responsive($md) {
+    //     width: 40%;
+    // }
+    
+    // @include responsive($lg) {
+    //     width: 25%;
+    // }
+    
+    // @include responsive($xxl) {
+    //     width: 20%;
+    // }
+}
